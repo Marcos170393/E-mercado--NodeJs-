@@ -1,0 +1,23 @@
+{
+  "name": "mercado-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcos170393/mercado-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcos170393/mercado-app/issues"
+  },
+  "homepage": "https://github.com/Marcos170393/mercado-app#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}

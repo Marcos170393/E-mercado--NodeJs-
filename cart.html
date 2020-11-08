@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+</head>
+
+<body onscroll="scrollNav()" >
+  <nav id="nav-1" class="navbar navbar-expand-lg shadow-lg bg-light ">
+    <a class="navbar-brand text-danger" href="#"><span><img src="/img/logo.png" style=" max-width: 40px" alt=""></span> E-MERCADO</a>
+    <button class="navbar-toggler  btn-hamb" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="text-dark "> <i class="fas fa-bars"></i></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="py-2  d-md-inline-block mx-2" href="home.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="py-2  d-md-inline-block mx-2" href="categories.html">Categorías</a>
+        </li>
+        <li class="nav-item">
+          <a class="py-2  d-md-inline-block mx-2" href="products.html">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="py-2  d-md-inline-block mx-2" href="sell.html">Vender</a>
+        </li>
+       </ul>
+       <div class="nav-item dropdown mr-5">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        
+          <button onclick="accountLogin()" class="dropdown-item" type="button"><img src="./img/gg.png" class=" mx-2" alt="google">Iniciar Sesion</button>
+         
+          <button class="dropdown-item" type="button"><a class="text-reset text-decoration-none" href="cart.html"><span class="text-info mx-2"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M5.5 3.5a2.5 2.5 0 0 1 5 0V4h-5v-.5zm6 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
+          </svg></span>Mi carrito</a></button>
+          
+          <button class="dropdown-item" type="button"><a class="text-reset text-decoration-none" href="my-profile.html"><span class="text-info mx-2"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path fill-rule="evenodd" d="M2 15v-1c0-1 1-4 6-4s6 3 6 4v1H2zm6-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg></span>Mi perfil</a></button>
+          
+          <button class="dropdown-item" type="button" onclick="cerrar()"><span class="text-info mx-2"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+            <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+          </svg></span>Cerrar Sesion</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+ 
+  <h1 class="display-3 m-5 border-bottom text-dark title-compras"> <span class="text-info"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M5.5 3.5a2.5 2.5 0 0 1 5 0V4h-5v-.5zm6 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
+  </svg></span> Mis compras</h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a href="home.html">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Carrito de compras</li>
+  </ol>
+  <section class="pt-5 pb-5">
+    <div class="container-fluid">
+      <h2 class="font-weight-light" style="font-size: 3em;">Productos : <span id="items-count" class="font-weight-normal"></span></h2>
+      <div class="row justify-content-around">
+          <div class="col-12 shadow-sm mx-auto mb-3 tabla-productos bg-light border" >
+              <table id="shoppingCart" class="table table-condensed table-responsive table-borderless">
+                  <thead class="thead">
+                      <tr>
+                          <th style="width:30%"></th>
+                          <th style="width:20%" class="border-bottom">Descripción</th>
+                          <th style="width:12%" class="border-bottom">Moneda</th>
+                          <th style="width:12%" class="border-bottom">Precio</th>
+                          <th style="width:10%" class="border-bottom">Cantidad</th>
+                          <th style="width:40%" class="border-bottom">Monto</th>
+                          <th style="width:10%" class="border-bottom"></th>
+                      </tr>
+                  </thead>
+                  <tbody id="table-cart" >
+                     <!-- contenido javascript -->
+                  </tbody>
+              </table>
+            </div>
+        </div>
+            <div class="row justify-content-around">
+              <div class="col-12 col-lg-6 border rounded shadow-sm bg-light p-4 mx-auto">
+                    <p class="font-weight-bolder ">Dirección de envío</p>
+                    <label for="">Ciudad</label>
+                    <select class="form-control">
+                      <option value="">Montevideo</option>
+                      <option value="">Canelones</option>
+                      <option value="">Maldonado</option>
+                    </select>
+                    <p for="" class="mt-3">Datos personales</p>
+                    <input id="tel" class="m-2 mt-0 form-control" type="number" placeholder="Telefono de contacto" >
+                    <input id="street" class="m-2 form-control" type="text" placeholder="Calle">
+                    <input id="door" class="m-2 form-control" type="text" placeholder="N.de puerta/solar">
+                    <input id="zone" class="m-2 form-control" type="text" placeholder="Barrio/zona">
+                    <div class="mt-3">
+                      <p class="font-weight-bolder">Seleccionar envío</p>
+                         <input name="envio" type="radio"" onclick="calcularEnvio(0.15)" id="envio-premium">
+                         <label class="font-weight-light" for="envio-premium" >Premium 2 a 5 días (<span class="font-weight-bolder">%15</span>)</label>
+                       <br>
+                         <input name="envio" type="radio" onclick="calcularEnvio(0.07)" value="1.7" id="envio-express">
+                         <label class="font-weight-light" for="envio-express">Express 5 a 8 días (<span class="font-weight-bolder">%7</span>)</label>
+                       <br>
+                         <input name="envio" type="radio" onclick="calcularEnvio(0.05)" value="1.5" id="envio-standard">
+                         <label class="font-weight-light" for="envio-standard">Standard 12 a 15 días (<span class="font-weight-bolder">%5</span>)</label>
+                       </div>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <div class="col-12 rounded h-75 mx-auto cart-stick border shadow-lg bg-light">
+                      <table class="table table-borderless">
+                        <thead>
+                          <tr></tr>
+                          <tr></tr>
+                        </thead>
+                        <tbody>
+                          <tr class="mt-2">
+                            <td class="font-weight-light border-bottom">Sub Total</td>
+                            <td id="withOutTax" class=" text-right border-bottom font-weight-light text-info"></td>
+                          </tr>
+                          <tr>
+                            <td class="font-weight-light border-bottom text-secondary">I.V.A</td>
+                            <td id="tax" class="text-right border-bottom font-weight-light text-secondary"> </td>
+                          </tr>
+                          <tr>
+                            <td class="font-weight-light border-bottom w-50 text-danger">Envío</td>
+                            <td id="shipping" class="text-right border-bottom font-weight-light text-danger"> </td>
+                          </tr>
+                          <tr class="border-bottom border-secondary">
+                            <td class="font-weight-bolder " style="font-size:1.2em">TOTAL</td>
+                            <td class="text-right" id="total-cost"> </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <small class="font-weight-light">Cotización <i type="button" class="far fa-question-circle" data-toggle="popover" title="Cotización del dolar" data-content="La cotizacion del dolar se realiza a $40 uruguayos"></i></small>
+                      <p><small class="font-weight-light">Metodo de pago: <span class="text-primary" id="paymentMetod"></span></small></p>
+                      <div class="text-right">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-secondary btn-sm w-100" data-toggle="modal" data-target="#exampleModal">
+                          Metodo de pago
+                        </button>
+                        <a href="#" type="button" class="btn btn-dark mb-4 w-100 "id="buyButton" onclick="buy()"> <span><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-wallet2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
+                        </svg></span> Confirmar</a>
+                    </div>
+                  </div>
+                  <div class="col-12 col-6 mt-4 text-registy py-4 rounded">
+                     <a href="./registry.html"><p class="display-4 align-self-center m-0">Historial de compras</p></a> 
+                  </div>
+                </div>
+            </div>
+               
+             
+      <div class="col-12 colg-lg-5">
+        <div class="row mt-4 align-content-end justify-content-between">
+            <div class="col-4 mb-3 mb-m-1 text-md-left">
+                <a href="products.html" class="text-danger">
+                  <span>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                    </svg>
+                  </span> Seguir explorando
+                </a>
+            </div>
+        </div>
+      </div>
+     
+  </div>
+  </section>
+
+  </div>
+
+  
+  <div class="bg-secondary mx-auto rounded-top text-center px-2 py-1" style="width: 10rem;" type="button" data-target="#informacion"  data-toggle="collapse">
+    <p class="text-white my-0">Mas información</p>
+  </div>
+
+  <div class="bg-light border collapse mb-0 p-5 col-12 " id="informacion" >
+    <div class="row justify-content-around">
+     <div class="col-3">
+      <p class="mb-3 font-weight-bold">Acerca de</p>
+      <p class="text-secondary mb-0"><a href="">E-Mercado</a></p>
+      <p class="text-secondary mb-0"><a href="">Developers</a></p>
+      <p class="text-secondary mb-0"><a href="">Condiciones</a></p>
+     </div>
+     <div class="col-3">
+      <p class="mb-3 font-weight-bold">Redes</p>
+      <p class="text-secondary mb-0"><i class="fab fa-facebook-square mr-1"></i><a href="">Facebook</a></p>
+      <p class="text-secondary mb-0"><i class="fab fa-instagram-square mr-1"></i><a href="">Instagram</a></p>
+      <p class="text-secondary mb-0"><i class="fab fa-linkedin mr-1"></i><a href="">LinkedIn</a></p>
+     </div>
+     <div class="col-3">
+      <p class="mb-3 font-weight-bold">Ayuda</p>
+      <p class="text-secondary mb-0"><a href="">Como comprar</a></p>
+      <p class="text-secondary mb-0"><a href="">Como vender</a></p>
+      <p class="text-secondary mb-0"><a href="">Politica de devoluciones</a></p>
+     </div>
+    </div>
+  </div>
+
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Metodo de pago.</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+             
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios" onclick="payMetod('efectivo')" >
+                  <label class="form-check-label" for="exampleRadios">
+                    Efectivo
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1"  onclick="payMetod('credito')" >
+                  <label class="form-check-label" for="exampleRadios1">
+                    Crédito
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2"  onclick="payMetod('transferencia')" >
+                  <label class="form-check-label" for="exampleRadios2">
+                    Transferencia bancaria.
+                  </label>
+                </div>
+               <div class="form-group m-3 border-top" id="form-dynamic">
+
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" id="selectMetod">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+    <!-- firebaseUI -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    $(function () {
+  $('[data-toggle="popover"]').popover()
+})
+  </script>
+</body>
+
+</html>

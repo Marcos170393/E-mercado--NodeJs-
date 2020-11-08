@@ -1,0 +1,393 @@
+body::-webkit-scrollbar{
+  -webkit-appearance: none;
+}
+
+body::-webkit-scrollbar-thumb{
+  
+  background-color: #6a69699a;
+  border-radius: 20px;
+  border: 2px solid #cdcecf;
+}
+
+body::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+  background-color: #c209099a;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+ul li{
+  list-style: none;
+}
+
+nav div ul li a{
+  color: black;
+  text-decoration: none;
+  transition-duration: .5s;
+}
+
+nav div ul li a:hover{
+  color: rgb(158, 6, 6);
+  text-decoration: none !important;
+  transform: translateY(3px);
+}
+
+nav ul li.active{
+  border-bottom: solid 1px rgb(190, 1, 42); 
+}
+
+a.custom-card,
+a.custom-card:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.float-redes{
+  position: fixed;
+  z-index: 100;
+  opacity: 0.8;
+  top: 200px;
+}
+
+.btn-redes{
+  color: rgb(179, 174, 174) !important;
+  transition-duration: .5s;
+}
+
+ .btn-redes:hover{
+  box-shadow: rgba(0, 0, 0, 0.239) 10px 8px 8px -5px;
+  transform: translateX(5px);
+  color: rgb(252, 252, 252) !important;
+}
+
+/*FIN BOTONES FIXED AL COSTADO */
+
+.carousel-caption{
+  background-color: rgba(255, 255, 255, 0.877);
+}
+
+
+.site-header a {
+  color: white;
+  transition: ease-in-out color .15s;
+}
+
+.light-text {
+  color: white;
+}
+
+.site-header .dropdown-menu a {
+  color: black;
+}
+
+.dropzone{
+  border: 2px dashed #0087F7;
+  border-radius: 5px;
+  background: white;
+}
+
+.alert{
+  position: fixed;
+  top:80px;
+  width: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  top:50%;
+  left: 50%;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#spinner-wrapper{
+  position: fixed;
+  background-color: rgba(0,0,0,0.5);
+  width:100%;
+  height: 100%;
+  top:0;
+  left:0;
+  z-index: 1021;
+  display: none;
+}
+
+
+/* Header styles*/
+.fondo-nav{
+  background-color: rgba(255, 255, 255, 0.842);
+}
+
+.close-btn{
+  cursor: pointer;
+}
+
+.checked {
+  color: orange;
+}
+/*FIN HEADER STYLES*/
+
+
+/* Estilo de listado productos*/
+.productos-item{
+  transition-duration: .5s;
+}
+
+ .productos-item:hover{
+  box-shadow: hsla(257, 30%, 86%, 0.898) 10px 8px 8px -5px;
+  transform: translateY(-10px);
+}
+
+
+.precio-items{
+  font-size: 1.3em;
+}
+/*FIN Estilo de listado productos*/
+
+/*CATEGORIES*/
+
+
+/*login*/
+:focus::-webkit-input-placeholder {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in;
+}
+
+.firebase-btn{
+  cursor: pointer;
+  transition-duration: .5s;
+}
+.firebase-btn:hover{
+  box-shadow: violet 1px 2px 10px;
+}
+.entrar{
+  color: white !important;
+}
+
+.login-bg{
+  padding: 0;
+  background-image: url('../img/compras-logini.jpg') ;
+  background-size: 100%;
+  background-position: 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.enter-login{
+  background-color: rgba(255, 255, 255, 0.924);
+  animation-name: login;
+  animation-duration: 2s;
+  
+}
+
+@keyframes login{
+  0%{transform: translateX(-200px);opacity: 0;}
+  100%{transform: translateX(0px);opacity: 1;}
+}
+/*Fin login*/
+
+/* Estilo de product-info*/
+.title-1{
+  animation-name: title-1;
+  animation-duration: 4s;
+}
+
+.title-2{
+  position: absolute;
+  animation-name: title-2;
+  animation-duration: 2s;
+  transform: translateX(100px);
+}
+
+.title-3{
+  position: absolute;
+  transform: translateY(100px);
+  transform: translateX(400px);
+  animation-name: title-3;
+  animation-duration: 2s;
+  opacity: 1;
+  
+}
+
+@keyframes title-2{
+  0%{transform: translateY(0px);opacity: 0;}
+
+  100%{transform: translateY(-100px);transform: translateX(100px);opacity: 1;}
+  
+}
+
+@keyframes title-3{
+  0%{transform: translateX(0px);opacity: 0;}
+
+  100%{transform: translateX(400px);}
+  
+}
+
+@keyframes title-1{
+  0%{opacity: 0;}
+
+  100%{opacity: 1;}
+  
+}
+
+.img-product-galery{
+  -webkit-transition-duration: .7s;
+  transition-duration: .7s;
+  
+}
+
+.img-product-galery:hover{
+  transform: perspective(250px) translateZ(100px) translateY(-30px)  ;
+   box-shadow: rgb(67, 67, 70) 5px 5px 15px 1px;
+}
+
+.checked{
+   color: orange;
+}
+
+.link{
+   text-decoration:none !important ;
+}
+
+.flecha-abajo:hover{
+  text-shadow: rgba(86, 86, 92, 0.671) 3px 1px;
+  position: initial;
+  -webkit-animation: flecha 1s infinite;
+  animation: flecha 1s infinite;
+}
+
+
+@keyframes flecha{
+      0%{transform: translateY(0px);}
+      50%{transform: translateY(6px);}
+      100%{transform: translateY(initial);}
+  }
+
+/*Fin estilos product-info*/
+
+/*CART*/
+.tabla-productos{
+  overflow: scroll ;
+  height: 400px;
+}
+.tabla-productos::-webkit-scrollbar{
+  -webkit-appearance: none;
+}
+.tabla-productos::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.tabla-productos::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.thead{
+  position: sticky;
+  top: 1px;
+}
+
+.text-registy{
+  background-color: none;
+  height: 125px;
+  transition-duration: .5s;
+  
+}
+.text-registy a{
+text-decoration: none !important;
+}
+
+.text-registy:hover{
+  color: white !important;
+  background-color: #1127cacc;
+}
+.text-registy a:hover{
+  color: white !important;
+}
+/*FIN CART*/
+
+/*MY PROFILE*/
+
+/*FIN MY PROFILE*/
+
+/*Media querys*/
+
+@media (max-width:980px){
+  .img-jap{
+    width: 70%;
+  }
+  body{
+    font-size: 0.8em;
+  }
+  .cart-stick{
+    position: relative;
+    top: 0;
+    float: right;
+  }
+}
+@media (max-width:580px){
+ .login-bg{
+   background-image: url('../img/bg-mobile.jpg');
+   background-size: 100%;
+   background-position: 0%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+ }
+
+ .enter-login{
+   padding: 30px;
+ }
+ .enter-login p{
+   font-size: 1.3em;
+ }
+
+ body{
+   font-size: .6em !important;
+ }
+ 
+}
+
