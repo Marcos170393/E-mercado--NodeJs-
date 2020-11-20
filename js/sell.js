@@ -25,6 +25,19 @@ function updateTotalCosts(){
     totalCostHTML.innerHTML = totalCostToShow;
 }
 
+ const IMAGE_PRODUCT = document.getElementById('input-img');
+
+ IMAGE_PRODUCT.addEventListener('load', function(){
+     var imgCanvas = document.createElement('canvas'),
+     imgContext = imgCanvas.getContext("2d");
+    //redimeciona la imagen
+     imgCanvas.width = 200;
+     imgCanvas.height = 200;
+    //convierte la imagen en un elemento canva.
+     imgContext.drawImage(IMAGE_PRODUCT, 0, 0, IMAGE_PRODUCT.width, IMAGE_PRODUCT.height);
+
+ })
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -67,12 +80,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         updateTotalCosts();
     });
 
-    //Configuraciones para el elemento que sube archivos
-    var dzoptions = {
-        url:"/",
-        autoQueue: false
-    };
-    var myDropzone = new Dropzone("div#file-upload", dzoptions);    
+   
 
 
     //Se obtiene el formulario de publicación de producto
@@ -147,3 +155,22 @@ document.addEventListener("DOMContentLoaded", function(e){
             return false;
     });
 });
+function sell(){
+    const name = document.getElementById('productName').vale;
+    const imagen = myDropzone.getAcceptedFiles();
+    console.log(myDropzone.getAcceptedFiles());
+   const description = document.getElementById('productDescription').value;
+   const cost = document.getElementById('productCostInput').value;
+   const currency = document.getElementById('productCurrency').value;
+   const selled = 0;
+    
+   let datos = {
+       "name": name,
+       "description": description,
+       "cost": cost,
+       "currency": currency,
+       "selled": selled
+   };
+
+   document.getElementById('imagen-drop').src = imagen.dataURL;
+}

@@ -96,14 +96,20 @@
               </div>
               <div class="row">
                 <div class="col-md-8 order-md-1">
-                    <label for="zip">Imágenes</label>
-                    <div class="needsclick dz-clickable" id="file-upload">
-                      <div class="dz-message needsclick">
-                        Arrastra tus fotos aquí<br>
-                      </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupFileAddon01">Foto</span>
                     </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="input-img" aria-describedby="inputGroupFileAddon01">
+                      <label class="custom-file-label" for="inputGroupFile01">Subir archivo</label>
+                    </div>
+                  </div>
+                  </div>
                 </div>
-              </div>
+                <div class="w-50">
+                  <img class="img-fluid" src="" alt="" id="imagen-drop">
+                </div>
               <div class="row">
                   <div class="col-md-12 mb-3">
                       <label for="productDescription">Descripción</label>
@@ -197,7 +203,7 @@
                   </li>
                 </ul>
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg" type="submit">Vender</button>
+              <button class="btn btn-primary btn-lg" type="submit" onclick="sell()">Vender</button>
             </form>
           </div>
         </div>
