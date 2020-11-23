@@ -95,20 +95,20 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-8 order-md-1">
+                <div class="col-md-8">
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroupFileAddon01">Foto</span>
                     </div>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="input-img" aria-describedby="inputGroupFileAddon01">
+                      <input type="file" class="custom-file-input" id="input-img" aria-describedby="inputGroupFileAddon01" onchange="img()">
                       <label class="custom-file-label" for="inputGroupFile01">Subir archivo</label>
                     </div>
                   </div>
                   </div>
-                </div>
-                <div class="w-50">
-                  <img class="img-fluid" src="" alt="" id="imagen-drop">
+                  <div class="col-md-3 h-100 w-100" id="imagen-drop">
+                    
+                  </div>
                 </div>
               <div class="row">
                   <div class="col-md-12 mb-3">
@@ -127,8 +127,8 @@
                 <div class="col-md-4 mb-3">
                     <label for="state">Moneda</label>
                     <select class="custom-select d-block w-100" id="productCurrency" required="">
-                      <option selected>Pesos Uruguayos (UYU)</option>
-                      <option>Dólares (USD)</option>
+                      <option selected>UYU</option>
+                      <option>USD</option>
                     </select>
                     <div class="invalid-feedback">
                       Ingresa una categoría válida.

@@ -9,6 +9,8 @@ let PESO_SYMBOL = "UYU ";
 let PERCENTAGE_SYMBOL = '%';
 let SUCCESS_MSG = "¡Se ha realizado la publicación con éxito! :)";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
+const IMAGE_PRODUCT = document.getElementById('input-img');
+const showImg = document.getElementById('imagen-drop');
 
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
@@ -25,18 +27,7 @@ function updateTotalCosts(){
     totalCostHTML.innerHTML = totalCostToShow;
 }
 
- const IMAGE_PRODUCT = document.getElementById('input-img');
 
- IMAGE_PRODUCT.addEventListener('load', function(){
-     var imgCanvas = document.createElement('canvas'),
-     imgContext = imgCanvas.getContext("2d");
-    //redimeciona la imagen
-     imgCanvas.width = 200;
-     imgCanvas.height = 200;
-    //convierte la imagen en un elemento canva.
-     imgContext.drawImage(IMAGE_PRODUCT, 0, 0, IMAGE_PRODUCT.width, IMAGE_PRODUCT.height);
-
- })
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -155,22 +146,52 @@ document.addEventListener("DOMContentLoaded", function(e){
             return false;
     });
 });
+
+let imagenParaEnviar;
+
+IMAGE_PRODUCT.onchange = function(e) {
+    //creamos objeto de la clase FilerReader(el cual nos permite leer archivos en buffer del lado cliente)
+    let reader = new FileReader();
+    //cargamos el archivo subido a FR
+    reader.readAsDataURL(e.target.files[0]);
+
+    //cuando la imagen esta cargada se la mandamos al previsualizador
+    reader.onload = function(){
+        imagenParaEnviar = reader.result;
+        console.log(imagenParaEnviar);
+        image = document.createElement('img');
+        image.src = reader.result;
+        showImg.innerHTML = '';
+        showImg.append(image);
+        image.style = "width: 200px;";
+
+    }
+}
+
+
 function sell(){
-    const name = document.getElementById('productName').vale;
-    const imagen = myDropzone.getAcceptedFiles();
-    console.log(myDropzone.getAcceptedFiles());
+   const name = document.getElementById('productName').value;
    const description = document.getElementById('productDescription').value;
    const cost = document.getElementById('productCostInput').value;
    const currency = document.getElementById('productCurrency').value;
    const selled = 0;
+
     
+   
    let datos = {
        "name": name,
        "description": description,
        "cost": cost,
        "currency": currency,
+       "imgSrc": imagenParaEnviar,
        "selled": selled
    };
+   
 
-   document.getElementById('imagen-drop').src = imagen.dataURL;
+  fetch(SELL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(datos)
+  }).then(response=>response.json()
+  ).then(data => console.log(data))
 }

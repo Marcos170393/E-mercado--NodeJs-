@@ -2,26 +2,27 @@
 const ORDEN_ASCENDENTE = 'Menor Precio';
 const ORDEN_DESCENDENTE = 'Mayor Precio';
 const ORDEN_DESCENDENTE_RELEVANCIA = 'Mas vendidos';
-
 const RESULTADO_DE_BUSQUEDA = document.querySelector('#galeria-productos');
 let busqueda = document.querySelector('#search-input');
 
 let productosArray = [];
+let newProducts = []; //NUEVOS PRODUCTOS PUBLICADOS
 let ordenDeListado = undefined; 
 var precioMinimo = undefined;
 var precioMaximo = undefined;
 
+let htmlContent = '';
+
+
     // FUNCION QUE MUESTRA EL ORDEN SELECCIONADO EN PANTALLA 
 function showProductsList(listado){
-    let htmlContent = '';
+    htmlContent = '';
 
-    
     for(let i = 0; i < listado.length; i++){
         let productos = listado[i];
-
         if (((precioMinimo == undefined) || (precioMinimo != undefined && parseInt(productos.cost) >= precioMinimo)) &&
         ((precioMaximo == undefined) || (precioMaximo != undefined && parseInt(productos.cost) <= precioMaximo))){
-
+        
         htmlContent += `
         <div class="card productos-item m-3 border-0" style="width: 18rem;">
             <a href="product-info.html"  style="text-decoration:none; color:black;">    
@@ -131,7 +132,7 @@ function buscarProductos(){
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function(resultados){
         if(resultados.status === 'ok'){
-           sortAndShowProducts(ORDEN_ASCENDENTE, resultados.data)
+           productosArray = resultados.data;
         }
     })
 
@@ -152,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         precioMinimo = undefined;
         precioMaximo = undefined;
 
-showProductsList(productosArray);
+
     });
     
     document.getElementById('search-input').addEventListener('input',buscarProductos)
@@ -182,6 +183,20 @@ showProductsList(productosArray);
         showProductsList(productosArray)
     });
 
-  
+    // SE CARGAN NUEVAS PUBLICACIONES    
+    getJSONData(SELL).then(function(resultados){
+        if(resultados.status === 'ok'){
+           newProducts = resultados.data;
+        }
+    for(let items of newProducts){
+        //SE AGREGAN AL ARRAY DONDE SE ENCUENTRAN LOS PRODUCTOS ORIGINALES
+        productosArray.push(items)
+    }
+    showProductsList(productosArray);
+    })
 });
+
+
+
+
 
