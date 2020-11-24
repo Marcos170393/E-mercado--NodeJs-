@@ -104,7 +104,7 @@ function calcularNuevoCosto(costo, id){
                 
                         <tr class="border-bottom">
                             <td class="text-left ">
-                                <img src="${article.src}" alt="" class="img-fluid d-none d-md-block rounded shadow-sm" style="width:10em"></td>
+                                <img src="${article.src}" alt="" class="img-fluid d-md-block rounded shadow-sm" style="width:10em"></td>
                             <td data-th="Product">
                                 <p class="font-weight-lighter">${article.name}</p>
                             </td>

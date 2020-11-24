@@ -70,7 +70,7 @@
           var isAnonymous = user.isAnonymous;
           var uid = user.uid;
           var providerData = user.providerData;
-            document.getElementById('user.name').innerHTML= `Logueado: ` + email + ` <button class="btn-sm btn-danger ml-3 d-none d-md-inline-block" onclick="cerrar()">Cerrar Sesión</button> `;
+            document.getElementById('user.name').innerHTML= `<img src="${photoURL}" style="width: 50px"> ${displayName} `;
             window.localStorage.setItem('current-user', displayName)
         }
       

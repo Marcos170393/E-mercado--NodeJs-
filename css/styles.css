@@ -157,7 +157,12 @@ a.custom-card:hover {
 /* Header styles*/
 .fondo-nav{
   background-color: rgba(255, 255, 255, 0.842);
-  
+  filter: blur(.7px);
+  transition-duration: .5s;
+}
+
+.fondo-nav:hover{
+  filter: none;
 }
 
 .close-btn{
@@ -336,19 +341,12 @@ a.custom-card:hover {
   background-color: none;
   height: 125px;
   transition-duration: .5s;
-  
+  font-size: 2em;
 }
 .text-registy a{
 text-decoration: none !important;
 }
 
-.text-registy:hover{
-  color: white !important;
-  background-color: #1127cacc;
-}
-.text-registy a:hover{
-  color: white !important;
-}
 /*FIN CART*/
 
 /*MY PROFILE*/

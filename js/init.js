@@ -70,19 +70,35 @@ firebase.auth().onAuthStateChanged(function(user) {
           var isAnonymous = user.isAnonymous;
           var uid = user.uid;
           var providerData = user.providerData;
-            window.localStorage.setItem('current-user', displayName)
+            window.localStorage.setItem('current-user', displayName);
+            window.localStorage.setItem('img-current-user', photoURL);
         }//Si el usuario no esta logueado ni local ni por google, se lo redirige al login
         if((!user && localStorage.length < 1) && window.location != 'index.html'){
           window.location.replace('index.html')
           alert('Debes estar registrado para poder ingresar al sitio. Gracias')
         }
     });
+
+    
+
+scrollNav();
+
+if (currentUser != null){
+  document.getElementById('dropdownMenu2').innerHTML=localStorage.getItem('data-user')
+
+}else{
+
+  document.getElementById('dropdownMenu2').innerHTML= `<img src="${localStorage.getItem('img-current-user')}" style="width:30px; border-radius:100%;"> ${localStorage.getItem('current-user')}`
+}
+
 })
+
+
 
 /*funcion para cerrar session*/
 function cerrar(){
     firebase.auth().signOut()
-    .then(function(){ // luego de cerrar la sesion limpia el localStorage y redirige
+    .then(function(){ 
       window.open("index.html","_self");
 })
   .catch(function(error){
@@ -114,16 +130,6 @@ function scrollNav(){
   }
 }
 
-
-if (currentUser != null){
-  document.getElementById('dropdownMenu2').innerHTML=localStorage.getItem('data-user')
-
-}else{
-
-  document.getElementById('dropdownMenu2').innerHTML=localStorage.getItem('current-user')
-}
-
-
 //.........................................
 //BOTONES FLOTANTES EN BODY
 //...............
@@ -131,7 +137,7 @@ const FLOAT_REDES = document.createElement('div');
 document.body.appendChild(FLOAT_REDES);
 
 FLOAT_REDES.innerHTML = `
-    <div class="flex flex-column justify-content-around float-redes" style="width: 40px;  ">
+    <div class="flex flex-column justify-content-around float-redes" style="width: 4%;  ">
       <a href="https://www.facebook.com/?hl=es-la" target="_blank">
         <div type='button' class="text-center rounded-top btn-redes bg-secondary" style="font-size: 1.5em;">
           <i class="fab fa-facebook-f"></i>

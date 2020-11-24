@@ -24,14 +24,16 @@ function showProductsList(listado){
         ((precioMaximo == undefined) || (precioMaximo != undefined && parseInt(productos.cost) <= precioMaximo))){
         
         htmlContent += `
-        <div class="card productos-item m-3 border-0" style="width: 18rem;">
+        <div class="card col-6 col-md-3 m-1 productos-item border-0 p-0" style="height:auto;">
             <a href="product-info.html"  style="text-decoration:none; color:black;">    
                 <img src="${productos.imgSrc}" class="card-img-top" alt="...">
             </a>
-            <div class="card-body bg-light">
+            <div class="card-body bg-light ">
                 <h5 class="card-title">${productos.name}</h5>
                 <p class="card-text">${productos.description}</p>
-                <p class="card-text text-primary border-bottom" style="font-size:1.5em">${productos.currency} ${productos.cost}</p>
+            </div>
+            <div class="card-footer">
+                <p class="card-text text-primary" style="font-size:1.5em">${productos.currency} ${productos.cost}</p>
                 <p class="card-text text-secondary float-right">Vendidos:${productos.soldCount}</p>
             </div>
         </div>
