@@ -56,12 +56,13 @@ a.custom-card:hover {
 .float-redes{
   position: fixed;
   z-index: 100;
-  opacity: 0.8;
   top: 200px;
 }
 
 .btn-redes{
   color: rgb(179, 174, 174) !important;
+  filter: blur(1px);
+  opacity: 0.8;
   transition-duration: .5s;
 }
 
@@ -69,6 +70,8 @@ a.custom-card:hover {
   box-shadow: rgba(0, 0, 0, 0.239) 10px 8px 8px -5px;
   transform: translateX(5px);
   color: rgb(252, 252, 252) !important;
+  opacity: 1;
+  filter: blur(0px);
 }
 
 /*FIN BOTONES FIXED AL COSTADO */
@@ -153,16 +156,10 @@ a.custom-card:hover {
   display: none;
 }
 
-
 /* Header styles*/
 .fondo-nav{
   background-color: rgba(255, 255, 255, 0.842);
-  filter: blur(.7px);
   transition-duration: .5s;
-}
-
-.fondo-nav:hover{
-  filter: none;
 }
 
 .close-btn{
@@ -178,6 +175,13 @@ a.custom-card:hover {
 /* Estilo de listado productos*/
 .productos-item{
   transition-duration: .5s;
+  overflow: hidden;
+  
+}
+
+.productos-item a img{
+  transition-duration: .9s;
+  opacity: .8;
 }
 
  .productos-item:hover{
@@ -185,6 +189,10 @@ a.custom-card:hover {
   transform: translateY(-10px);
 }
 
+.productos-item:hover a img {
+  transform: scale(1.1);
+  opacity: 1;
+}
 
 .precio-items{
   font-size: 1.3em;

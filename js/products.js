@@ -24,12 +24,14 @@ function showProductsList(listado){
         ((precioMaximo == undefined) || (precioMaximo != undefined && parseInt(productos.cost) <= precioMaximo))){
         
         htmlContent += `
-        <div class="card col-6 col-md-3 m-1 productos-item border-0 p-0" style="height:auto;">
-            <a href="product-info.html"  style="text-decoration:none; color:black;">    
+        <div class="card m-1 productos-item border-0 p-0" style="width:17rem;">
+        <div class="card-header">
+        <h5 class="card-title">${productos.name}</h5></div>   
+        <a href="product-info.html"  style="text-decoration:none; color:black;">    
                 <img src="${productos.imgSrc}" class="card-img-top" alt="...">
             </a>
             <div class="card-body bg-light ">
-                <h5 class="card-title">${productos.name}</h5>
+           
                 <p class="card-text">${productos.description}</p>
             </div>
             <div class="card-footer">
@@ -44,22 +46,15 @@ function showProductsList(listado){
     }
 }
 
-
-
     // Funcion que recepciona el orden seleccionado y envia esos datos a ORDENARPRODUCTOS()
-function sortAndShowProducts(orden, array){
+function sortAndShowProducts(orden){
     ordenDeListado = orden;
-
-    if(array != undefined){
-        productosArray = array;
-    }
-    // SE PASA COMO PARAMETRO LOS DATOS INGRESADOS EN EL ADDEVENTLISTENER 
+       // SE PASA COMO PARAMETRO LOS DATOS INGRESADOS EN EL ADDEVENTLISTENER 
     productosArray = ordenarProductos(ordenDeListado, productosArray);
     // ordenarProductos() devuelve ordenado el array
     showProductsList(productosArray);
     //y show productList lo muestra en pantalla
 }
-
 
 /* FUNCION QUE RECIBE COMO PARAMETROS UN CRITERIO Y UN ARRAY */
 function ordenarProductos(criterio, array){
@@ -126,12 +121,11 @@ function buscarProductos(){
         
     }
     if(RESULTADO_DE_BUSQUEDA.innerHTML === ''){
-        RESULTADO_DE_BUSQUEDA.innerHTML = `<h2> No se encontraron atriculos con esa descripcion</h2>`
+        RESULTADO_DE_BUSQUEDA.innerHTML = `<h2> No se encontraron atrículos con esa descripción</h2>`
     }
 }
 
-
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded",  function (e) {
     getJSONData(PRODUCTS_URL).then(function(resultados){
         if(resultados.status === 'ok'){
            productosArray = resultados.data;
@@ -154,12 +148,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         precioMinimo = undefined;
         precioMaximo = undefined;
-
-
     });
-    
     document.getElementById('search-input').addEventListener('input',buscarProductos)
-
 
     /* Funcion para filtrar por precio */
     document.getElementById("filtrarResultados").addEventListener("click", function(){

@@ -109,7 +109,7 @@ function buscarProductos(){
         
     }
     if(RESULTADO_DE_BUSQUEDA.innerHTML === ''){
-        RESULTADO_DE_BUSQUEDA.innerHTML = `<h2> No se encontraron atriculos con esa descripcion</p>`
+        RESULTADO_DE_BUSQUEDA.innerHTML = `<h2> No se encontraron atrículos con esa descripción</p>`
     }
 }
 
