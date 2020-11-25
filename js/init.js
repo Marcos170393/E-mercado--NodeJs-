@@ -14,7 +14,6 @@ var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
 
-var currentUser = window.localStorage.getItem('data-user');
 
 var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
@@ -83,12 +82,18 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 scrollNav();
 
-if (currentUser != null){
-  document.getElementById('dropdownMenu2').innerHTML=localStorage.getItem('data-user')
 
-}else{
+// se muestra la informacion del usuario en el nav-header
+  let imagenPerfil =  window.localStorage.getItem('img-current-user')  
+  let usuarioActual = window.localStorage.getItem('current-user')
+    let json = localStorage.getItem(usuarioActual);
+    let stringStorage  = JSON.parse(json);
 
-  document.getElementById('dropdownMenu2').innerHTML= `<img src="${localStorage.getItem('img-current-user')}" style="width:30px; border-radius:100%;"> ${localStorage.getItem('current-user')}`
+if(imagenPerfil != null){
+  document.getElementById('dropdownMenu2').innerHTML=`<img src="${stringStorage.photoUser}" style="width:30px; border-radius:100%;"> ${localStorage.getItem('current-user')}` ;
+}
+else{
+  document.getElementById('dropdownMenu2').innerHTML= `<img src="${localStorage.getItem('img-current-user')}" style="width:30px; border-radius:100%;"> ${localStorage.getItem('current-user')}`;
 }
 
 })
