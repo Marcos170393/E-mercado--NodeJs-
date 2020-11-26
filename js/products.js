@@ -21,7 +21,7 @@ function showProductsList(listado){
     for(let i = 0; i < listado.length; i++){
         let productos = listado[i];
         if (((precioMinimo == undefined) || (precioMinimo != undefined && parseInt(productos.cost) >= precioMinimo)) &&
-        ((precioMaximo == undefined) || (precioMaximo != undefined && parseInt(productos.cost) <= precioMaximo))){
+        ((precioMaximo == undefined) || (precioMaximo != undefined && parseInt(productos.cost) <= precioMaximo))){  
         
         htmlContent += `
         <div class="card m-1 productos-item border-0 p-0" style="width:17rem;">
@@ -41,8 +41,7 @@ function showProductsList(listado){
         </div>
         `
         document.getElementById('galeria-productos').innerHTML = htmlContent
-    }
-
+        }
     }
 }
 
@@ -106,22 +105,27 @@ function buscarProductos(){
             RESULTADO_DE_BUSQUEDA.innerHTML +=
             `
             <div class="card productos-item m-3 border-0" style="width: 18rem;">
-            <a href="product-info.html"  style="text-decoration:none; color:black;">    
-                <img src="${producto.imgSrc}" class="card-img-top" alt="...">
-            </a>
-            <div class="card-body bg-light">
-                <h5 class="card-title">${producto.name}</h5>
-                <p class="card-text">${producto.description}</p>
-                <p class="card-text text-primary border-bottom" style="font-size:1.5em">${producto.currency} ${producto.cost}</p>
-                <p class="card-text text-secondary float-right">Vendidos:${producto.soldCount}</p>
-            </div>
-        </div>
-        `
+                <a href="product-info.html"  style="text-decoration:none; color:black;">    
+                    <img src="${producto.imgSrc}" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body bg-light">
+                    <h5 class="card-title">${producto.name}</h5>
+                    <p class="card-text">${producto.description}</p>
+                    <p class="card-text text-primary border-bottom" style="font-size:1.5em">${producto.currency} ${producto.cost}</p>
+                    <p class="card-text text-secondary float-right">Vendidos:${producto.soldCount}</p>
+                </div>
+            </div>`
         }
-        
     }
     if(RESULTADO_DE_BUSQUEDA.innerHTML === ''){
-        RESULTADO_DE_BUSQUEDA.innerHTML = `<h2> No se encontraron atrículos con esa descripción</h2>`
+        RESULTADO_DE_BUSQUEDA.innerHTML = `
+        <div class="col-12 mb-4 text-center">
+        <h2> No se encontraron atrículos con la descripción: <span class="text-danger">${dato}</span></h2>
+        </div>    
+        <div class="col-12 text-center">
+        <img src="img/no-encontrado.svg" style="width:500px">
+        </div>
+         `
     }
 }
 

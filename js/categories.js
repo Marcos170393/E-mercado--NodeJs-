@@ -109,7 +109,12 @@ function buscarProductos(){
         
     }
     if(RESULTADO_DE_BUSQUEDA.innerHTML === ''){
-        RESULTADO_DE_BUSQUEDA.innerHTML = `<h2> No se encontraron atrículos con esa descripción</p>`
+        RESULTADO_DE_BUSQUEDA.innerHTML = `<div class="col-12 mb-4 text-center">
+        <h2> No se encontraron atrículos con la descripción: <span class="text-danger">${dato}</span></h2>
+        </div>    
+        <div class="col-12 text-center">
+        <img src="img/no-encontrado.svg" style="width:500px">
+        </div>`
     }
 }
 

@@ -1,22 +1,21 @@
+/* Edicion de scrollbar */
 body::-webkit-scrollbar{
   -webkit-appearance: none;
 }
-
 body::-webkit-scrollbar-thumb{
   
   background-color: #6a69699a;
   border-radius: 20px;
   border: 2px solid #cdcecf;
 }
-
 body::-webkit-scrollbar:vertical {
   width:10px;
 }
-
 body::-webkit-scrollbar-thumb:hover{
   background-color: #c209099a;
   
 }
+/*FIN Edicion de scrollbar */
 
 footer {
   padding-top: 3rem;
@@ -355,11 +354,14 @@ a.custom-card:hover {
 text-decoration: none !important;
 }
 
+.reloj{
+ transition-duration: 1s;
+}
+.text-registy:hover a p .reloj{
+  transform: rotateZ(-180deg);
+}
+
 /*FIN CART*/
-
-/*MY PROFILE*/
-
-/*FIN MY PROFILE*/
 
 /*Media querys*/
 

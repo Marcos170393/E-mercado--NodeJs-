@@ -12,9 +12,8 @@ var creditPayment; //  constante para indicar que se selecciono credito
 var alerta = document.createElement('div');
     document.body.appendChild(alerta);
 
-//funcion que solo se ejecuta cuando carga el carrito
+//funcion que solo se ejecuta cuando carga el carrito <<<<<<
 function calcularCosto(costo, cantidad){
-  
     buyCost += costo * cantidad;
     //desglose del precio
     var costoConIva = buyCost;
@@ -26,9 +25,9 @@ function calcularCosto(costo, cantidad){
     document.getElementById('tax').innerHTML =`$ ${ivaAmount}`;
     document.getElementById('total-cost').innerHTML =`$ ${costoConIva}`;
     document.getElementById('items-count').innerHTML=`${itemsTotales}`;
-}
+};
 
-//se calcula el nuevo costo, con la cantidad modificada
+//se calcula el nuevo costo, con la cantidad modificada   <<<<<<
 function calcularNuevoCosto(costo, id){
       var countItem = Number(document.getElementById(id).value);// se accede al elemento dom que fue modificado y extrae el value
       var monto = costo * countItem
@@ -50,10 +49,10 @@ function calcularNuevoCosto(costo, id){
         document.getElementById('withOutTax').innerHTML =`$ ${total}` ;
         document.getElementById('tax').innerHTML =`$ ${ivaAmount}` ;
         document.getElementById('total-cost').innerHTML =`$ ${totalDelaCompra}`;
-    }
+};
       
-        //Funcion para calcular el costo de envio en base al total de productos.
-    function calcularEnvio(percent){
+    //Funcion para calcular el costo de envio en base al total de productos. <<<<<
+function calcularEnvio(percent){
         //percent es un real
         shippingSelected = percent;
         shipping = Math.floor(buyCost * percent);
@@ -61,10 +60,10 @@ function calcularNuevoCosto(costo, id){
 
         document.getElementById('total-cost').innerHTML="$ " + totalConEnvio;
         document.getElementById('shipping').innerHTML="$ " + shipping;
-}
+};
 
-    // FUNCION QUE ELIMINA LOS ARTICULOS
-    function deleteItem(item){
+    // FUNCION QUE ELIMINA LOS ARTICULOS. <<<<<
+function deleteItem(item){
         cartContent.articles.splice(item, 1);
         //se resetean valores del carrito para que se calculen en base al estado actual.
         console.log(cartContent);
@@ -75,9 +74,9 @@ function calcularNuevoCosto(costo, id){
         mostrarProductos();
         //llamamos a calcularEnvio con el estado actual de shippingSelected como parametro, para recalcular el costo de envio.
         calcularEnvio(shippingSelected);
-    }
+};
 
-    function mostrarProductos(){
+function mostrarProductos(){
         var contadorId = 0; // contador para asignar id dinamicos a cada articulos
         var contadorArray = -1; // contador para poder eliminar articulos
         htmlContent = '';
@@ -133,30 +132,22 @@ function calcularNuevoCosto(costo, id){
         }
         //se despliegan resultados
         document.getElementById('table-cart').innerHTML = htmlContent;
-        
-    }
-
-    //........
-
+};
+   
         //FUNCION QUE CARGA LOS ARTICULOS
-    //........
-    getJSONData(CART_INFO_URL_PROPIO).then(function(result){
+getJSONData(CART_INFO_URL_PROPIO).then(function(result){
         if(result.status === 'ok'){
             cartContent = result.data;
-            
         }else{
             console.log('error');
         }
         mostrarProductos();
         console.log(state)
-    });
+});
    
-
     // Funcion que muestra alertas
-    function payMetod(metodo){
-
+function payMetod(metodo){
         let container = document.getElementById('form-dynamic')
-        
         if(metodo == "efectivo"){
             container.innerHTML = `
                 <label class="text-info"> Podrá realizar su pago en efectivo por medio de las siguientes redes de cobranza</label>
@@ -206,10 +197,10 @@ function calcularNuevoCosto(costo, id){
             document.getElementById('paymentMetod').innerHTML="Transferencia bancaria";
         }
         
-    };
+};
 
     //validacion para la opcion de credito
-    document.getElementById('selectMetod').addEventListener('click', ()=>{
+document.getElementById('selectMetod').addEventListener('click', ()=>{
         if(creditPayment == "credito"){
             let num = document.getElementById('card-num').value;
             let date = document.getElementById('card-date').value;
@@ -237,10 +228,10 @@ function calcularNuevoCosto(costo, id){
         }    
         
         payMetodSelected = 'true';
-    })
+});
 
     //function que muestra alertas y confirma compra
-        function buy(){
+function buy(){
             let telefono = document.getElementById('tel').value;
             let calle = document.getElementById('street').value;
             let puerta = document.getElementById('door').value;
@@ -313,11 +304,8 @@ function calcularNuevoCosto(costo, id){
                         method: 'POST',
                         headers: {"Content-type": "application/json"}, 
                         body: JSON.stringify(datos)
-                    }).then(response=>response.json()
-                    ).then(data => console.log(data))
-
+                    }).then(response=>response.json());
                 }
-
                 //eliminamos todos los productos del carrito y todos los calculos
                 cartContent.articles.splice(0)
                 itemsTotales = 0;
@@ -326,4 +314,4 @@ function calcularNuevoCosto(costo, id){
                 mostrarProductos();
                 return payMetodSelected = undefined;
             }
-        }
+}
