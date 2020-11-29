@@ -236,7 +236,11 @@ function buy(){
             let calle = document.getElementById('street').value;
             let puerta = document.getElementById('door').value;
             let zona = document.getElementById('zone').value;
-            
+          
+            //registro de dia en la que se hizo la compra.
+            let dateComent = new Date();
+            let fecha = dateComent.getDate() +  '_' + (dateComent.getMonth() + 1);
+
             console.log(payMetodSelected)
             if(!telefono || !calle || !puerta || !zona){
                 alerta.innerHTML =`
@@ -297,7 +301,10 @@ function buy(){
                         "src": items.src,
                         "name": items.name,
                         "unitCost": items.unitCost,
-                        "count": items.count
+                        "count": items.count,
+                        "address": puerta,
+                        "location": zona,
+                        "date": fecha
                     }
 
                     fetch(BUY_REGISTRY, {

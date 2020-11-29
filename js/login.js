@@ -45,11 +45,12 @@
     
       //Funcion para iniciar sesion con cuenta propia(creada anteriormente en firebase)
    
-      document.getElementById('acceso').addEventListener('click', function(){
-        let emailU = document.getElementById('input-email').value;
+  document.getElementById('acceso').addEventListener('click', function(){
+        let emailU = document.getElementById('input-name').value;
         let passU = document.getElementById('input-password').value;
-        localStorage.setItem('current-user', emailU)
+        window.localStorage.setItem('current-user', emailU)
             if(emailU){
+              console.log(emailU);
              document.getElementById('myForm').action='home.html'
             }
             else if(passU.length < 8){
@@ -70,7 +71,7 @@
           var isAnonymous = user.isAnonymous;
           var uid = user.uid;
           var providerData = user.providerData;
-            document.getElementById('user.name').innerHTML= `<img src="${photoURL}" style="width: 50px"> ${displayName} `;
+            document.getElementById('user.name').innerHTML= `<img src="${photoURL}" style="width: 50px"> ${displayName} <button class="btn btn-info float-right" onclick="logOut()">Cerrar sesión</button>`;
             window.localStorage.setItem('current-user', displayName)
         }
       
@@ -79,3 +80,7 @@
  })
 
  
+function logOut(){
+  firebase.auth().signOut()
+  window.location.reload();
+}

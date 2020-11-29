@@ -84,18 +84,19 @@ scrollNav();
 
 
 // se muestra la informacion del usuario en el nav-header
-  let imagenPerfil =  window.localStorage.getItem('img-current-user')  
-  let usuarioActual = window.localStorage.getItem('current-user')
+  let imagenPerfil = window.localStorage.getItem('img-current-user');
+  let usuarioActual = window.localStorage.getItem('current-user');
     let json = localStorage.getItem(usuarioActual);
-    let stringStorage  = JSON.parse(json);
+    let stringStorage = JSON.parse(json);
 
-if(imagenPerfil != null){
+if(imagenPerfil == null){
+  document.getElementById('dropdownMenu2').innerHTML=` ${localStorage.getItem('current-user')}` ;
+}if(!imagenPerfil){
   document.getElementById('dropdownMenu2').innerHTML=`<img src="${stringStorage.photoUser}" style="width:30px; border-radius:100%;"> ${localStorage.getItem('current-user')}` ;
 }
 else{
   document.getElementById('dropdownMenu2').innerHTML= `<img src="${localStorage.getItem('img-current-user')}" style="width:30px; border-radius:100%;"> ${localStorage.getItem('current-user')}`;
 }
-
 })
 
 
@@ -104,6 +105,8 @@ else{
 function cerrar(){
     firebase.auth().signOut()
     .then(function(){ 
+      window.localStorage.removeItem('img-current-user');
+      window.localStorage.removeItem('trigger')
       window.open("index.html","_self");
 })
   .catch(function(error){
