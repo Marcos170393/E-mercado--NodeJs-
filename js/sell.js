@@ -2,8 +2,8 @@ let productCost = 0;
 let productCount = 0;
 let comissionPercentage = 0.13;
 let MONEY_SYMBOL = "$";
-let DOLLAR_CURRENCY = "Dólares (USD)";
-let PESO_CURRENCY = "Pesos Uruguayos (UYU)";
+let DOLLAR_CURRENCY = "USD";
+let PESO_CURRENCY = "UYU";
 let DOLLAR_SYMBOL = "USD ";
 let PESO_SYMBOL = "UYU ";
 let PERCENTAGE_SYMBOL = '%';
@@ -20,7 +20,7 @@ function updateTotalCosts(){
 
     let unitCostToShow = MONEY_SYMBOL + productCost;
     let comissionToShow = Math.round((comissionPercentage * 100)) + PERCENTAGE_SYMBOL;
-    let totalCostToShow = MONEY_SYMBOL + (Math.round(productCost * comissionPercentage * 100) / 100);
+    let totalCostToShow = MONEY_SYMBOL + (Math.round((productCost * comissionPercentage)+ parseInt(productCost)));
 
     unitProductCostHTML.innerHTML = unitCostToShow;
     comissionCostHTML.innerHTML = comissionToShow;

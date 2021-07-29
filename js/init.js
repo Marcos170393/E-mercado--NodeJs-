@@ -14,7 +14,6 @@ var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
 
-
 var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
@@ -70,7 +69,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           var uid = user.uid;
           var providerData = user.providerData;
             window.localStorage.setItem('current-user', displayName);
-            window.localStorage.setItem('img-current-user', photoURL);
+            document.getElementById('dropdownMenu2').innerHTML=`<img src="${photoURL}" style="width:30px; border-radius:100%;"> ${localStorage.getItem('current-user')}` ;
         }//Si el usuario no esta logueado ni local ni por google, se lo redirige al login
         if((!user && localStorage.length < 1) && window.location != 'index.html'){
           window.location.replace('index.html')
@@ -84,18 +83,22 @@ scrollNav();
 
 
 // se muestra la informacion del usuario en el nav-header
-  let imagenPerfil = window.localStorage.getItem('img-current-user');
+  let imagenPerfil = localStorage.getItem('img-current-user');
   let usuarioActual = window.localStorage.getItem('current-user');
+  let userImageState = window.localStorage.getItem('userImageLoaded');
+  console.log(userImageState);
     let json = localStorage.getItem(usuarioActual);
     let stringStorage = JSON.parse(json);
 
-if(imagenPerfil == null){
-  document.getElementById('dropdownMenu2').innerHTML=` ${localStorage.getItem('current-user')}` ;
-}if(!imagenPerfil){
+
+document.getElementById('dropdownMenu2').innerHTML= usuarioActual ;
+
+
+if(userImageState == "true"){
   document.getElementById('dropdownMenu2').innerHTML=`<img src="${stringStorage.photoUser}" style="width:30px; border-radius:100%;"> ${localStorage.getItem('current-user')}` ;
 }
 else{
-  document.getElementById('dropdownMenu2').innerHTML= `<img src="${localStorage.getItem('img-current-user')}" style="width:30px; border-radius:100%;"> ${localStorage.getItem('current-user')}`;
+  document.getElementById('dropdownMenu2').innerHTML= `<img src="img/user_icon.png" style="width:30px; border-radius:100%;"> ${localStorage.getItem('current-user')}`;``
 }
 })
 
@@ -141,25 +144,25 @@ function scrollNav(){
 //.........................................
 //BOTONES FLOTANTES EN BODY
 //...............
-const FLOAT_REDES = document.createElement('div');
-document.body.appendChild(FLOAT_REDES);
+const FLOAT_BUTTONS = document.createElement('div');
+document.body.appendChild(FLOAT_BUTTONS);
 
-FLOAT_REDES.innerHTML = `
-    <div class="flex flex-column justify-content-around float-redes" style="width: 4%;  ">
+FLOAT_BUTTONS.innerHTML = `
+    <div class="flex flex-column justify-content-around float-buttons" style="width: 3rem;">
       <a href="https://www.facebook.com/?hl=es-la" target="_blank">
-        <div type='button' class="text-center rounded-top btn-redes bg-secondary" style="font-size: 1.5em;">
+        <div type='button' class="text-center rounded-top btn-media bg-secondary" style="font-size: 1.5em;">
           <i class="fab fa-facebook-f"></i>
        </div>
       </a>
      
       <a target="_blank" href="https://www.instagram.com/?hl=es-la" >
-        <div type='button' class=" text-center btn-redes"  style="font-size: 1.5em; background-color: blue">
+        <div type='button' class=" text-center btn-media"  style="font-size: 1.5em; background-color: blue">
           <i class="fab fa-instagram"></i>
         </div>
       </a>
 
       <a href="https://twitter.com/?lang=es" target="_blank">
-        <div type='button' class=" text-center bg-primary rounded-bottom btn-redes" style="font-size: 1.5em;">
+        <div type='button' class=" text-center bg-primary rounded-bottom btn-media" style="font-size: 1.5em;">
           <i class="fab fa-twitter"></i>
         </div>
       </a>  

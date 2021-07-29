@@ -13,8 +13,8 @@ function pickImage(){
     let reader = new FileReader();
     reader.readAsDataURL(photo);
     reader.onload = function() {
-        photo64 = reader.result;
-        console.log(reader.result);
+        photo64 = reader.result; 
+        window.localStorage.setItem('userImageLoaded', "true");       
     }
 }
 

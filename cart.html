@@ -145,7 +145,7 @@
                           </tr>
                         </tbody>
                       </table>
-                      <small class="font-weight-light">Cotización <i type="button" class="far fa-question-circle" data-toggle="popover" title="Cotización del dolar" data-content="La cotizacion del dolar se realiza a $40 uruguayos"></i></small>
+                      <small class="font-weight-light" id="currencyValue"></small><i type="button" class="far fa-question-circle" data-toggle="popover" title="Cotización del dolar" data-content="La cotizacion es brindada por: <a href='https://openexchangerates.org' target='_blank'>https://openexchangerates.org</a>"  ></i>
                       <p><small class="font-weight-light">Metodo de pago: <span class="text-primary" id="paymentMetod"></span></small></p>
                       <div class="text-right">
                         <!-- Button trigger modal -->
@@ -284,7 +284,7 @@
   <script src="js/cart.js"></script>
   <script>
     $(function () {
-  $('[data-toggle="popover"]').popover()
+  $('[data-toggle="popover"]').popover({html:true})
 })
   </script>
 </body>

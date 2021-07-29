@@ -16,7 +16,6 @@ body::-webkit-scrollbar-thumb:hover{
   
 }
 /*FIN Edicion de scrollbar */
-
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -52,25 +51,26 @@ a.custom-card:hover {
   text-decoration: inherit;
 }
 
-.float-redes{
+.float-buttons{
   position: fixed;
-  z-index: 100;
+  z-index: 1;
   top: 200px;
 }
 
-.btn-redes{
+.btn-media{
   color: rgb(179, 174, 174) !important;
+  -webkit-filter: blur(1px);
   filter: blur(1px);
   opacity: 0.8;
   transition-duration: .5s;
 }
 
- .btn-redes:hover{
-  box-shadow: rgba(0, 0, 0, 0.239) 10px 8px 8px -5px;
-  transform: translateX(5px);
+.btn-media:hover{
   color: rgb(252, 252, 252) !important;
+  box-shadow: rgba(70, 62, 62, 0.398) 10px 8px 8px -5px;
   opacity: 1;
-  filter: blur(0px);
+  -webkit-filter: blur(1px);
+  filter: blur(.1px);
 }
 
 /*FIN BOTONES FIXED AL COSTADO */
@@ -202,11 +202,11 @@ a.custom-card:hover {
 
 
 /*login*/
-:focus::-webkit-input-placeholder {
+/* :focus::-webkit-input-placeholder {
   opacity: 0;
   -webkit-transition: opacity 0.35s ease-in-out;
   transition: opacity 0.35s ease-in;
-}
+} */
 
 .firebase-btn{
   cursor: pointer;
@@ -229,6 +229,11 @@ a.custom-card:hover {
   background-attachment: fixed;
 }
 
+.nav-login{
+  height: 100px;
+  padding: 10px;
+}
+
 .enter-login{
   background-color: rgba(255, 255, 255, 0.924);
   animation-name: login;
@@ -239,6 +244,20 @@ a.custom-card:hover {
 @keyframes login{
   0%{transform: translateX(-200px);opacity: 0;}
   100%{transform: translateX(0px);opacity: 1;}
+}
+
+.label-email{
+  position: absolute;
+  z-index:100;
+  transform: translateX(50px) translateY(8px);
+  transition: .5s;
+  color: rgba(128, 128, 128, 0.5);
+  padding:0;
+}
+
+.input-anim{
+  border: none;
+  border-bottom: .5px solid;
 }
 /*Fin login*/
 

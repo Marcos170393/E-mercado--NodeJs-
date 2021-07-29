@@ -13,41 +13,27 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <style>
-    html, body{
-      height: 100%;
-    }
-
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-  }
-
-    
-  </style>
 </head>
+<body class="login-bg">
+  <nav class="nav-login">
+    <div class="float-right">
+    <!-- Button trigger modal -->
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-register">
+      Registrarme
+      </button>
+    </div>
+  </nav>
 
-<body class="text-center login-bg">
- 
- 
-  <div class="container enter-login rounded shadow-lg">
-    <!-- Titulo de form que indica si hay usuario logueado -->
-    <p class="py-2 text-left" id="user.name">
-      <!-- contenido generado dinamicamente -->
-    </p>
-
+<main class="container enter-login rounded shadow-lg">
     <div class="row align-items-center">
  
-      <div class="col-sm-5 col-lg-8 p-5">
-            <img src="./img/login.png" alt="" style="max-width: 500px;" class="img-jap">
-        <!-- <h1 class="display-4 d-lg-block d-none mb-5 text-dark">Bienvenido a la tienda online de <span class="text-danger"> Jovenes a Programar</span></h1> -->
+      <div class="col-sm-5 col-lg-7 p-5">
+            <img src="./img/login.png" alt="" style="max-width: 450px;" class="img-jap">
         </div>
  
-        <div class="pb-4 m-auto" style="max-width: 300px;">
+        <div class="py-2 m-auto" style="max-width: 300px;">
             
-            <form id="myForm" class=" formulario-login p-5 border rounded bg-light">
+            <form id="myForm" onsubmit="return verificarDatos()" class=" formulario-login p-5 border rounded">
              
               <div class="form-group">
                 <input type="text" class="form-control" id="input-name" aria-describedby="emailHelp" placeholder="Nombre de Usuario" name="email" required>
@@ -62,21 +48,60 @@
                   <label class="form-check-label" for="exampleCheck1">Recordarme</label>
               </div>
              
-              <button class="btn btn-primary" id="acceso">  <a class="entrar"> Ingresar </a> </button>
-
+              <button class="btn btn-primary w-100 border" id="acceso" type="submit"><a class="entrar"> Ingresar </a> </button>
               <div class="firebase-btn p-1 mt-4 border rounded">
                 <p onclick="accountLogin()" class=" my-0"> <img src="./img/gg.png" class="m-2" alt="google"><small> Acceder con Google</small></p>
               </div>
-
+              
               <a href="#"><small id="emailHelp" class="form-text text-muted mt-3">No recuerdo mi contraseña</small></a>
             </form>
           
         </div>
     </div>
   </div>  
-  
-  
 
+</main>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <button type="button" class="close text-right m-3" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <div class="modal-body">
+        <h1 class="text-center mt-2 display-4">Bienvenido!</h1>
+        <p class="text-center mb-2 text-secondary">Completa el siguiente formulario para empezar a disfrutar de <strong class="text-danger">e-Mercado</strong></p>
+        <form>
+          <div class="form-group p-5">
+
+            <div class="input-group mb-5 mr-sm-2">
+              <input type="email" class="form-control input-anim" id="email-id" required>
+              <div class="label-email" id="label-email">
+                <label for="email-id">Email</label>
+              </div>
+            </div>
+
+            <div class="input-group mb-5 mr-sm-2">
+              <input type="password" class="form-control input-anim" id="pass-id" required>
+              <div class="label-email" id="label-2">
+                <label for="pass-id">Contraseña</label>
+              </div>
+            </div>
+
+            <div class="input-group mr-sm-2">
+              <input type="password" class="form-control input-anim" id="pass-id-2" required>
+              <div class="label-email" id="label-3">
+                <label for="pass-id-2">Repetir Contraseña</label>
+              </div>
+            </div>
+ 
+          </div>
+        </form>
+      </div>
+      <button type="submit" data-dismiss="modal" aria-label="Close" class="btn btn-outline-success w-90 m-1 " onclick="signIn()">Enviar</button>
+      </div>
+  </div>
 
   <!-- firebaseUI -->
   
@@ -84,8 +109,10 @@
   <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
   <script src="js/login.js"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
   <!-- <script src="js/init.js"></script> -->
-  
+
   
 </body>
 </html>
